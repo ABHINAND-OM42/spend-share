@@ -1,17 +1,24 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Register from './pages/Register';
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
+import Dashboard from "./pages/Dashboard";
+import CreateGroupPage from "./pages/CreateGroupPage";
+import GroupDetails from "./pages/GroupDetails";
 
-function App() {
-  return (
-    <Router>
+function App(){
+  return(
+    <BrowserRouter>
       <Routes>
-        {/* Default Route: Redirects to Register */}
-        <Route path="/" element={<Navigate to="/register" />} />
-        
-        {/* Register Route */}
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<LandingPage />}/>
+        <Route path="/register" element={<RegisterPage />}/>
+        <Route path="/login" element={<LoginPage />}/>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/create-group" element={<CreateGroupPage />} />
+        <Route path="/group/:groupId" element={<GroupDetails />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
